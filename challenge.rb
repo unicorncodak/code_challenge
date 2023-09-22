@@ -1,6 +1,8 @@
 require 'json'
 
 # Helper method to read and parse JSON files with error handling
+# @param [String] filename - The name of the JSON file to read.
+# @return [Array] - An array containing the parsed JSON data.
 def read_json_file(filename)
   JSON.parse(File.read(filename))
 rescue JSON::ParserError => e
@@ -21,7 +23,7 @@ users_by_company = users.group_by { |user| user['company_id'] }
 # Create a hash to store the total top-up amount for each company
 total_top_ups = Hash.new(0)
 
-# Generate the output
+# Generate the output for each company
 output = ""
 
 companies.each do |company|
