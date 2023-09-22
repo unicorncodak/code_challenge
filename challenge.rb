@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json'
 
 # Helper method to read and parse JSON files with error handling
@@ -24,7 +26,7 @@ users_by_company = users.group_by { |user| user['company_id'] }
 total_top_ups = Hash.new(0)
 
 # Generate the output for each company
-output = ""
+output = ''
 
 companies.each do |company|
   company_id = company['id']
@@ -62,7 +64,7 @@ end
 # Write the output to output.txt
 begin
   File.open('output.txt', 'w') { |file| file.write(output) }
-  puts "Result written to output.txt"
+  puts 'Result written to output.txt'
 rescue IOError => e
   puts "Error writing to output.txt: #{e.message}"
   exit 1
